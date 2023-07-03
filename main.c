@@ -8,6 +8,8 @@
 #include "servo.h"
 
 #define BUTTON_PIN 0
+#define LED_GREEN 1
+#define LED_RED 2
 
 #define BIT_SET(a, b) ((a) |= (1ULL << (b)))
 #define BIT_CLEAR(a,b) ((a) &= ~(1ULL<<(b)))
@@ -36,9 +38,11 @@ int main(void){
     BIT_CLEAR(DDRB,BUTTON_PIN); // INPUT MODE
     BIT_SET(PORTB,BUTTON_PIN); 
 
+    BIT_CLEAR(DDRB, LED_GREEN);
+    BIT_SET(DDRB, LED_RED);
+
     bool buttonIsPressed = false;
     while(1){
-      
         if(!BIT_CHECK(PINB, BUTTON_PIN)){ //nedtryckt
             _delay_ms(100);
             buttonIsPressed = !buttonIsPressed;
@@ -46,8 +50,13 @@ int main(void){
             // printf("BUTTON PRESSED    ");
         }
         if(buttonIsPressed){
+            BIT_SET(PORTB,LED_GREEN);
+            BIT_CLEAR(PORTB,LED_RED);
             openSafe();
             _delay_ms(2000);
+
+            BIT_CLEAR(PORTB,LED_GREEN);
+            BIT_SET(PORTB,LED_RED);
             closeSafe();
             buttonIsPressed = false;
         }
