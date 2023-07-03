@@ -21,12 +21,10 @@
 
 void openSafe(){
     servo1_set_percentage(100);
-    _delay_ms(1000);
 }
 
 void closeSafe(){
     servo1_set_percentage(-100);
-    _delay_ms(1000);
 }
 
 int main(void){
@@ -53,8 +51,7 @@ int main(void){
             BIT_SET(PORTB,LED_GREEN);
             BIT_CLEAR(PORTB,LED_RED);
             openSafe();
-            _delay_ms(2000);
-
+            _delay_ms(3000);
             BIT_CLEAR(PORTB,LED_GREEN);
             BIT_SET(PORTB,LED_RED);
             closeSafe();
