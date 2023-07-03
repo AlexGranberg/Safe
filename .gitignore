@@ -1,3 +1,7 @@
-/avrdemo.hex
-/avrdemo.map
+/.vscode
+/*.o
+/*.exe
+/*.d
+/*.hex
+/*.map
 /bin

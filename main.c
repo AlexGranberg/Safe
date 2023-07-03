@@ -56,6 +56,8 @@ int main(void){
             BIT_SET(PORTB,LED_RED);
             closeSafe();
             buttonIsPressed = false;
+            _delay_ms(3000);
+            BIT_CLEAR(PORTB, LED_RED);
         }
 
     }
