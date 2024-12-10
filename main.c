@@ -53,14 +53,14 @@ int main(void){
             openSafe();
             _delay_ms(183);
             servo1_set_percentage(0);
-            _delay_ms(3000);
+            _delay_ms(2500);
             BIT_CLEAR(PORTB,LED_GREEN);
             BIT_SET(PORTB,LED_RED);
             closeSafe();
             _delay_ms(175);
             servo1_set_percentage(0);
             buttonIsPressed = false;
-            _delay_ms(3000);
+            _delay_ms(2500);
             BIT_CLEAR(PORTB, LED_RED);
             BIT_CLEAR(PORTB, LED_GREEN);
         }
